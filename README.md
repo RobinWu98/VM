@@ -5,8 +5,7 @@ RISK-XVII virtual machine project with two clearly separated runtimes:
 - **CLI VM (C):** native binary execution of `.mi` memory images
 - **Web VM (Next.js):** interactive simulator with builder, trace panels, memory/heap views, and docs
 
-<details open>
-<summary><strong>CLI VM (C)</strong></summary>
+## CLI VM (C)
 
 ### What it provides
 
@@ -36,10 +35,7 @@ Example:
 ./cli/vm_riskxvii ./cli/examples/printing_h/printing_h.mi
 ```
 
-</details>
-
-<details open>
-<summary><strong>Web VM (Next.js)</strong></summary>
+## Web VM (Next.js)
 
 ### What it provides
 
@@ -57,25 +53,25 @@ Example:
 This project supports the following VM capability blocks:
 
 - Instruction execution core
-  - Arithmetic & logic block
-  - Memory access block
-  - Program flow block (branch/jump)
+- Arithmetic & logic block
+- Memory access block
+- Program flow block (branch/jump)
 - Execution observability
-  - Program builder + program queue
-  - Step/Run control
-  - Bit trace and flags
-  - Register panel
+- Program builder + program queue
+- Step/Run control
+- Bit trace and flags
+- Register panel
 - Memory systems
-  - Data memory window (`0x0400-0x07FF`)
-  - Heap memory window (`0xB700-0xD6FF`)
-  - Heap bank allocation view (`128 x 64B`)
+- Data memory window (`0x0400-0x07FF`)
+- Heap memory window (`0xB700-0xD6FF`)
+- Heap bank allocation view (`128 x 64B`)
 - Virtual routines / I/O
-  - Console read/write
-  - Halt / dump routines
-  - Heap malloc/free routines
+- Console read/write
+- Halt / dump routines
+- Heap malloc/free routines
 - Error handling
-  - Illegal operation reporting
-  - Unsupported instruction reporting
+- Illegal operation reporting
+- Unsupported instruction reporting
 
 ### Location
 
@@ -93,8 +89,6 @@ npm run dev
 ```
 
 Open `http://localhost:3000`.
-
-</details>
 
 ## Screenshots (Web)
 
