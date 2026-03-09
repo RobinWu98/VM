@@ -1,0 +1,105 @@
+:root {
+  --bg: #f3f0e8;
+  --paper: #fffdf9;
+  --ink: #202020;
+  --muted: #69645c;
+  --accent: #0d6e5f;
+  --accent-2: #0b4f44;
+  --line: #d7d0c3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 15% 20%, #e7f2ef 0%, transparent 45%),
+    radial-gradient(circle at 85% 10%, #f5e6cf 0%, transparent 35%),
+    var(--bg);
+}
+
+main {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+h1 {
+  margin: 0 0 6px;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+}
+
+.subtitle {
+  color: var(--muted);
+  margin: 0 0 20px;
+}
+
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 8px 22px rgba(28, 22, 12, 0.08);
+}
+
+.grid {
+  display: grid;
+  gap: 12px;
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+input[type="file"],
+textarea,
+button {
+  width: 100%;
+  font: inherit;
+}
+
+textarea {
+  min-height: 120px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px;
+  resize: vertical;
+  background: #fffcf7;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: white;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.output {
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: #1f1f1f;
+  color: #d8ffd8;
+  font-family: "IBM Plex Mono", "Consolas", monospace;
+  white-space: pre-wrap;
+  min-height: 110px;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
