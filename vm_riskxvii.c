@@ -3,8 +3,6 @@
 
 #include "vm_riskxvii.h"
 
-// shwu7827
-// Shangwei Wu
 
 // printing the register_dump message
 void register_dump(struct blob *vm){
