@@ -38,6 +38,36 @@ h1 {
   margin: 0 0 20px;
 }
 
+.contactLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.contactLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent-2);
+  text-decoration: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 10px;
+  background: #fffaf0;
+  font-size: 0.9rem;
+}
+
+.contactLink:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.contactIcon {
+  display: inline-flex;
+  align-items: center;
+}
+
 .card {
   background: var(--paper);
   border: 1px solid var(--line);
@@ -157,6 +187,49 @@ h2 {
 .rightPane {
   display: grid;
   gap: 14px;
+}
+
+.workspaceVertical {
+  margin-top: 14px;
+  display: grid;
+  gap: 14px;
+}
+
+.guideDetails details {
+  display: grid;
+  gap: 12px;
+}
+
+.guideDetails summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.guideTableWrap {
+  overflow-x: auto;
+}
+
+.guideTable {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+  font-size: 0.9rem;
+}
+
+.guideTable th,
+.guideTable td {
+  border: 1px solid var(--line);
+  padding: 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.guideTable th {
+  background: #f2ebdd;
+}
+
+.guideTable tbody tr:nth-child(odd) {
+  background: #fffaf0;
 }
 
 button.secondary {
@@ -360,10 +433,6 @@ button.danger {
 }
 
 @media (max-width: 980px) {
-  .workspace {
-    grid-template-columns: 1fr;
-  }
-
   .bitCells {
     gap: 2px;
   }
