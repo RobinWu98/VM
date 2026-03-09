@@ -23,7 +23,7 @@ body {
 }
 
 main {
-  max-width: 920px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 24px 16px 48px;
 }
@@ -57,19 +57,26 @@ label {
 }
 
 input[type="file"],
+input[type="number"],
+select,
 textarea,
 button {
   width: 100%;
   font: inherit;
 }
 
+input[type="number"],
+select,
 textarea {
-  min-height: 120px;
   border: 1px solid var(--line);
   border-radius: 10px;
   padding: 10px;
-  resize: vertical;
   background: #fffcf7;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
 }
 
 button {
@@ -88,7 +95,6 @@ button:disabled {
 }
 
 .output {
-  margin-top: 14px;
   padding: 12px;
   border-radius: 10px;
   border: 1px solid var(--line);
@@ -102,4 +108,118 @@ button:disabled {
 .hint {
   color: var(--muted);
   font-size: 0.9rem;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.panel {
+  margin-top: 12px;
+}
+
+.row {
+  display: grid;
+  gap: 10px;
+}
+
+.row-3 {
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+.actions {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+}
+
+.usageGuide {
+  margin-top: 14px;
+}
+
+.usageGuide ol {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+}
+
+.workspace {
+  margin-top: 14px;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: minmax(420px, 1fr) minmax(420px, 1fr);
+  align-items: start;
+}
+
+.leftPane,
+.rightPane {
+  display: grid;
+  gap: 14px;
+}
+
+button.secondary {
+  background: #e9e3d6;
+  color: #2e2a24;
+}
+
+button.danger {
+  width: auto;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: #b24636;
+}
+
+.programList {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+}
+
+.programList li {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fffaf0;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.programList li.active {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px rgba(13, 110, 95, 0.25);
+}
+
+.registerGrid {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+}
+
+.register {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fffaf0;
+  padding: 10px;
+  display: grid;
+  gap: 4px;
+}
+
+.register span {
+  font-family: "IBM Plex Mono", "Consolas", monospace;
+}
+
+.register.changed {
+  border-color: var(--accent);
+  background: #e8f6f3;
+}
+
+@media (max-width: 980px) {
+  .workspace {
+    grid-template-columns: 1fr;
+  }
 }

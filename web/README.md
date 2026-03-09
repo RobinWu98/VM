@@ -1,13 +1,14 @@
 # RISK-XVII Online Lab (Next.js)
 
-This is a Next.js frontend + API wrapper around the existing `vm_riskxvii` C binary.
+This is a Next.js frontend for interactive VM learning, plus an API wrapper around the existing `vm_riskxvii` C binary.
 
 ## What it does
 
-- Upload a `.mi` program file in browser.
-- Provide stdin text.
-- Call `/api/run` to execute `vm_riskxvii`.
-- Return combined stdout/stderr output.
+- Build a small instruction program directly in the browser (no `.mi` upload required).
+- Execute the program step-by-step (`Step`) or continuously (`Run`).
+- Watch register updates and PC movement after each instruction.
+- Inspect output logs from `PRINT`, runtime errors, or `HALT`.
+- Still supports `/api/run` for `.mi` execution through backend API.
 
 ## Local run
 
