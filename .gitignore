@@ -33,10 +33,10 @@ build/
 !Dockerfile
 !.dockerignore
 
-# Don't ignore anything in the tests folder.
+# Don't ignore example/test assets under cli.
 !tests/*/*.*
-!examples/*/*.*
-!examples/
+!cli/examples/
+!cli/examples/**
 !web/
 !web/**
 

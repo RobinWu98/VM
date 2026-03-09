@@ -1,38 +1,96 @@
 # RISK-XVII VM
 
-A virtual machine project for the RISK-XVII ISA, with:
+RISK-XVII virtual machine project with two clearly separated runtimes:
 
-- a **Web simulator** (interactive UI, step/run execution, trace panels), and
-- a **C CLI VM** (`vm_riskxvii.c`) for binary memory image execution.
+- **CLI VM (C):** native binary execution of `.mi` memory images
+- **Web VM (Next.js):** interactive simulator with builder, trace panels, memory/heap views, and docs
 
-Welcome to use it.
+## CLI VM (C)
+
+### What it provides
+
+- RISK-XVII instruction execution in native C
+- Virtual routines support
+- Heap bank allocation support
+- Example programs and test script
+
+### Location
+
+- `cli/vm_riskxvii.c`
+- `cli/vm_riskxvii.h`
+- `cli/Makefile`
+- `cli/examples/`
+- `cli/README.md` (detailed CLI usage)
+
+### Build and run
+
+```bash
+make
+./cli/vm_riskxvii <memory_image_binary>
+```
+
+Example:
+
+```bash
+./cli/vm_riskxvii ./cli/examples/printing_h/printing_h.mi
+```
+
+## Web VM (Next.js)
+
+### What it provides
+
+- Instruction Builder and Program queue
+- Step/Run execution
+- Bit Trace and Flags
+- Registers panel
+- Data Memory and Heap Memory windows
+- Heap Banks Allocation view
+- Built-in docs panels (instruction groups, PC/memory/heap, virtual routines)
+- `/api/run` wrapper to execute `.mi` through the native CLI binary
 
 ## Feature Blocks
 
 This project supports the following VM capability blocks:
 
-- **Instruction execution core**
-  - Arithmetic & logic block
-  - Memory access block
-  - Program flow block (branch/jump)
-- **Execution observability**
-  - Program builder + program queue
-  - Step/Run control
-  - Bit trace and flags
-  - Register panel
-- **Memory systems**
-  - Data memory window (0x0400-0x07FF)
-  - Heap memory window (0xB700-0xD6FF)
-  - Heap bank allocation view (128 x 64B)
-- **Virtual routines / I/O**
-  - Console read/write
-  - Halt / dump routines
-  - Heap malloc/free routines
-- **Error handling**
-  - Illegal operation reporting
-  - Unsupported instruction reporting
+- Instruction execution core
+- Arithmetic & logic block
+- Memory access block
+- Program flow block (branch/jump)
+- Execution observability
+- Program builder + program queue
+- Step/Run control
+- Bit trace and flags
+- Register panel
+- Memory systems
+- Data memory window (`0x0400-0x07FF`)
+- Heap memory window (`0xB700-0xD6FF`)
+- Heap bank allocation view (`128 x 64B`)
+- Virtual routines / I/O
+- Console read/write
+- Halt / dump routines
+- Heap malloc/free routines
+- Error handling
+- Illegal operation reporting
+- Unsupported instruction reporting
 
-## Screenshots
+### Location
+
+- `web/app/page.tsx`
+- `web/app/globals.css`
+- `web/app/api/run/route.ts`
+- `web/README.md`
+
+### Run web app
+
+```bash
+cd web
+npm install
+npm run dev
+```
+
+Open `http://localhost:3000`.
+
+## Screenshots (Web)
 
 The UI screenshots are organized under `docs/images/`.
 
@@ -62,56 +120,36 @@ The UI screenshots are organized under `docs/images/`.
 
 ## Tech Stack
 
-- **Core VM (CLI):** C
-- **Frontend:** Next.js 14, React 18, TypeScript
-- **Styling:** CSS (`web/app/globals.css`)
-- **Build tooling:** Make (C binary), npm (web app)
-- **API wrapper:** Next.js Route Handler (`web/app/api/run/route.ts`) invoking the native VM binary
+### CLI
 
-## Run
+- C
+- GCC/Clang via Make
 
-### 1) C CLI VM
+### Web
 
-Build and run from repository root:
-
-```bash
-make
-./vm_riskxvii <memory_image_binary>
-```
-
-Implementation entry points:
-
-- `vm_riskxvii.c`
-- `vm_riskxvii.h`
-
-### 2) Web simulator
-
-```bash
-cd web
-npm install
-npm run dev
-```
-
-Open `http://localhost:3000`.
+- Next.js 14
+- React 18
+- TypeScript
+- CSS
+- Node.js/npm
 
 ## Project Structure
 
 ```text
 .
-├── vm_riskxvii.c          # C CLI VM implementation
-├── vm_riskxvii.h          # C VM headers / structures
-├── Makefile               # C build
-├── examples/              # sample .mi and tests
+├── cli/
+│   ├── vm_riskxvii.c
+│   ├── vm_riskxvii.h
+│   ├── Makefile
+│   ├── README.md
+│   └── examples/
+├── web/
+│   ├── app/page.tsx
+│   ├── app/globals.css
+│   ├── app/api/run/route.ts
+│   └── README.md
 ├── docs/
-│   └── images/            # README screenshots
-└── web/
-    ├── app/page.tsx       # Web VM UI + execution logic
-    ├── app/globals.css    # UI styling
-    ├── app/api/run/route.ts
-    └── README.md
+│   └── images/
+├── Makefile
+└── Dockerfile
 ```
-
-## Notes
-
-- The web app is an interactive simulator and also keeps `/api/run` support for `.mi` execution via the native binary.
-- For CLI-level VM behavior details, refer directly to `vm_riskxvii.c`.

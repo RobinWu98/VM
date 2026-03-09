@@ -6,8 +6,9 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y --no-install-recommends gcc make \
   && rm -rf /var/lib/apt/lists/*
 
-COPY Makefile vm_riskxvii.c vm_riskxvii.h ./
-RUN make
+COPY Makefile ./Makefile
+COPY cli ./cli
+RUN make -C cli
 
 # Build Next.js app
 COPY web/package.json web/package-lock.json ./web/
@@ -21,7 +22,7 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=3000
 
-COPY --from=builder /app/vm_riskxvii /app/vm_riskxvii
+COPY --from=builder /app/cli/vm_riskxvii /app/cli/vm_riskxvii
 COPY --from=builder /app/web /app/web
 
 WORKDIR /app/web

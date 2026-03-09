@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -u
 
-ROOT_DIR="$(cd "$(dirname "$0")/../.." && pwd)"
-VM="$ROOT_DIR/vm_riskxvii"
+ROOT_DIR="$(cd "$(dirname "$0")/../../.." && pwd)"
+VM="$ROOT_DIR/cli/vm_riskxvii"
 
 if [[ ! -x "$VM" ]]; then
   echo "[INFO] vm_riskxvii not found, building first..."
@@ -34,17 +34,17 @@ run_case() {
 run_case \
   "printing_h outputs H then halts" \
   "HCPU Halt Requested" \
-  "\"$VM\" \"$ROOT_DIR/examples/printing_h/printing_h.mi\""
+  "\"$VM\" \"$ROOT_DIR/cli/examples/printing_h/printing_h.mi\""
 
 run_case \
   "add_2_numbers with 12 + 34" \
   "46CPU Halt Requested" \
-  "printf '12\n34\n' | \"$VM\" \"$ROOT_DIR/examples/add_2_numbers/add_2_numbers.mi\""
+  "printf '12\n34\n' | \"$VM\" \"$ROOT_DIR/cli/examples/add_2_numbers/add_2_numbers.mi\""
 
 run_case \
   "branch with 10,20,30,40,50" \
   "-41CPU Halt Requested" \
-  "printf '10\n20\n30\n40\n50\n' | \"$VM\" \"$ROOT_DIR/examples/test/branch.mi\""
+  "printf '10\n20\n30\n40\n50\n' | \"$VM\" \"$ROOT_DIR/cli/examples/test/branch.mi\""
 
 echo ""
 echo "Summary: ${pass} passed, ${fail} failed"

@@ -6,7 +6,7 @@ import path from "path";
 export const runtime = "nodejs";
 
 const ROOT_DIR = path.resolve(process.cwd(), "..");
-const BIN_PATH = path.join(ROOT_DIR, "vm_riskxvii");
+const BIN_PATH = path.join(ROOT_DIR, "cli", "vm_riskxvii");
 const TMP_DIR = path.join(process.cwd(), ".tmp");
 
 async function execVm(programPath: string, stdin: string) {
@@ -45,7 +45,7 @@ export async function POST(request: Request) {
   } catch {
     return Response.json(
       {
-        error: "vm_riskxvii binary not found. Build it first with `make` in project root."
+        error: "vm_riskxvii binary not found. Build it first with `make` in project root (or `make -C cli`)."
       },
       { status: 400 }
     );

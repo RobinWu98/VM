@@ -80,7 +80,7 @@ Response:
 
 ## Deployment notes
 
-This project depends on a native executable (`vm_riskxvii`).
+This project depends on a native executable (`cli/vm_riskxvii`).
 
 - If deploying to serverless platforms, ensure native binary execution is supported.
 - For stable deployment, use a container platform (Render, Fly.io, Railway, ECS, etc.) and compile `vm_riskxvii` during build.

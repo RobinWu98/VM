@@ -1,30 +1,14 @@
-TARGET = vm_riskxvii
-
-CC = gcc
-
-CFLAGS     = -c  -Os  -s -fno-exceptions -ffunction-sections -fdata-sections 
-LDFLAGS = -s
-SRC        = vm_riskxvii.c
-OBJ        = $(SRC:.c=.o)
-
-all:$(TARGET)
-
-$(TARGET):$(OBJ)
-	$(CC)  -o $@ $(OBJ) $(LDFLAGS)
-
-.SUFFIXES: .c .o
-
-.c.o:
-	 $(CC) $(CFLAGS)  $<
+all:
+	$(MAKE) -C cli all
 
 run:
-	./$(TARGET)
+	$(MAKE) -C cli run
 
 test:
-	echo what are we testing?!
+	$(MAKE) -C cli test
 
 clean:
-	rm -f *.o *.obj $(TARGET)
+	$(MAKE) -C cli clean
 
 compress:
-	upx --best $(TARGET)
+	$(MAKE) -C cli compress
