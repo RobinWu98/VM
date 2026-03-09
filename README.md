@@ -52,26 +52,26 @@ Example:
 
 This project supports the following VM capability blocks:
 
-- Instruction execution core
-- Arithmetic & logic block
-- Memory access block
-- Program flow block (branch/jump)
-- Execution observability
-- Program builder + program queue
-- Step/Run control
-- Bit trace and flags
-- Register panel
-- Memory systems
-- Data memory window (`0x0400-0x07FF`)
-- Heap memory window (`0xB700-0xD6FF`)
-- Heap bank allocation view (`128 x 64B`)
-- Virtual routines / I/O
-- Console read/write
-- Halt / dump routines
-- Heap malloc/free routines
-- Error handling
-- Illegal operation reporting
-- Unsupported instruction reporting
+- **Instruction execution core**
+  - Arithmetic & logic block
+  - Memory access block
+  - Program flow block (branch/jump)
+- **Execution observability**
+  - Program builder + program queue
+  - Step/Run control
+  - Bit trace and flags
+  - Register panel
+- **Memory systems**
+  - Data memory window (`0x0400-0x07FF`)
+  - Heap memory window (`0xB700-0xD6FF`)
+  - Heap bank allocation view (`128 x 64B`)
+- **Virtual routines / I/O**
+  - Console read/write
+  - Halt / dump routines
+  - Heap malloc/free routines
+- **Error handling**
+  - Illegal operation reporting
+  - Unsupported instruction reporting
 
 ### Location
 
