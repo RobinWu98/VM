@@ -174,6 +174,43 @@ const VIRTUAL_ROUTINES: Array<{ address: string; name: string; access: string; b
   { address: "0x0834", name: "free", access: "Store", behavior: "Free chunk starting at stored pointer, error if invalid." }
 ];
 
+const QUICK_EXAMPLES: Array<{ title: string; program: string[]; expected: string[] }> = [
+  {
+    title: "Example 1: Data Memory Read/Write + Console Print",
+    program: [
+      "ADDI R1, R0, 1024",
+      "ADDI R2, R0, 65",
+      "SB R2, [R1 + 2]",
+      "LB R3, [R1 + 2]",
+      "ADDI R10, R0, 2048",
+      "SW R3, [R10 + 4]"
+    ],
+    expected: [
+      "R3 = 65",
+      "Data memory 0x0402 stores 0x41",
+      "Output shows: 65"
+    ]
+  },
+  {
+    title: "Example 2: Heap malloc/free via Virtual Routines",
+    program: [
+      "ADDI R11, R0, 2096",
+      "ADDI R12, R0, 80",
+      "SW R12, [R11 + 0]",
+      "ADDI R13, R0, 4660",
+      "SH R13, [R28 + 6]",
+      "LHU R14, [R28 + 6]",
+      "ADDI R15, R0, 2100",
+      "SW R28, [R15 + 0]"
+    ],
+    expected: [
+      "After malloc: R28 points to first allocated heap bank (normally 0x0000B700 on clean VM)",
+      "R14 = 4660",
+      "After free: corresponding heap banks return to FREE"
+    ]
+  }
+];
+
 function createVmState(): VmState {
   return {
     registers: Array.from({ length: REGISTER_COUNT }, () => 0),
@@ -1279,6 +1316,31 @@ export default function HomePage() {
       </section>
 
       <section className="workspaceVertical">
+        <section className="card guideDetails panel">
+          <details>
+            <summary>Quick Example 1: Data Memory + Output</summary>
+            <p className="hint">Add these instructions in order:</p>
+            <pre className="output">{QUICK_EXAMPLES[0].program.join("\n")}</pre>
+            <p className="hint">Expected result:</p>
+            <ul>
+              {QUICK_EXAMPLES[0].expected.map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
+          </details>
+          <details>
+            <summary>Quick Example 2: Heap malloc/free</summary>
+            <p className="hint">Add these instructions in order:</p>
+            <pre className="output">{QUICK_EXAMPLES[1].program.join("\n")}</pre>
+            <p className="hint">Expected result:</p>
+            <ul>
+              {QUICK_EXAMPLES[1].expected.map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
+          </details>
+        </section>
+
         <section className="card grid panel">
           <h2>Instruction Builder</h2>
 

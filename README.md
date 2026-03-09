@@ -36,18 +36,29 @@ This project supports the following VM capability blocks:
 
 The UI screenshots are organized under `docs/images/`.
 
-![Instruction Builder](docs/images/instruction-builder.png)
-![Program + Controls](docs/images/program-controls.png)
-![Bit Trace](docs/images/bit-trace.png)
-![Flags](docs/images/flags.png)
-![Registers](docs/images/registers.png)
-![Data Memory](docs/images/data-memory.png)
-![Heap Memory](docs/images/heap-memory.png)
-![Heap Banks](docs/images/heap-banks.png)
+### Program Construction & Execution
+
+![Instruction Builder](docs/images/instruction_builder.png)
+![Program + Controls](docs/images/program.png)
+
+### Trace & Machine State
+
+![Bit Trace](docs/images/bit_trace.png)
+![Flags](docs/images/flag.png)
+![Registers](docs/images/register.png)
 ![Output](docs/images/output.png)
-![Instruction Guide](docs/images/instruction-guide.png)
-![PC Memory Heap Guide](docs/images/pc-memory-heap-guide.png)
-![Virtual Routines](docs/images/virtual-routines.png)
+
+### Memory & Heap Views
+
+![Data Memory](docs/images/data_memory.png)
+![Heap Memory](docs/images/heap_memory.png)
+![Heap Banks](docs/images/heap_bank.png)
+
+### Built-in Documentation Panels
+
+![Instruction Guide](docs/images/instrucion_guide.png)
+![PC Memory Heap Guide](docs/images/memory_exlain.png)
+![Virtual Routines](docs/images/virtual_routine.png)
 
 ## Tech Stack
 

@@ -10,7 +10,7 @@ This is a Next.js frontend for interactive VM learning, plus an API wrapper arou
 - Inspect output logs from virtual routines (console write / dump / halt) and runtime errors.
 - Still supports `/api/run` for `.mi` execution through backend API.
 
-## ISA coverage (COMP2017 A2)
+## ISA coverage 
 
 The web simulator now follows the assignment instruction set categories:
 
