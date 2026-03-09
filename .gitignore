@@ -27,6 +27,7 @@ build/
 !*.mjs
 !*.json
 !*.css
+!*.png
 
 !.gitignore
 !Dockerfile
